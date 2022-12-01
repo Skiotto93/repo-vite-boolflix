@@ -1,6 +1,13 @@
 <script>
+import { store } from '../store'
+
 export default {
-    name: 'AppHeader'
+    name: 'AppHeader',
+    data() {
+        return {
+            store,
+        }
+    }
 }
 </script>
 
@@ -8,8 +15,13 @@ export default {
 <header>
     <div class="container">
         <h1>BOOLFLIX</h1>
-        <form>
-            <input type="text" placeholder="Inserisci testo">
+        <form  @submit.prevent="$emit('performSearch')">
+            <input class="textSearch" type="text" 
+            placeholder="Inserisci testo" v-model="store.textResearch"
+            required>
+            <button class="btn" type="submit">
+                Search
+            </button>
         </form>
     </div>
 </header>
@@ -28,6 +40,16 @@ header {
     align-items: center;
     h1 {
         color: red;
+    }
+    .textSearch {
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+    .btn {
+        padding: 5px;
+        border: none;
+        border-radius: 5px;
+        margin-left: 10px;
     }
     }
 }
