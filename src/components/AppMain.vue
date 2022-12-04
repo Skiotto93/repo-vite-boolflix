@@ -19,6 +19,7 @@ export default {
     <main>
         <div class="container">
             <AppCard v-for="movie in store.movies" :info="movie"/>
+            <AppCard v-for="serie in store.series" :info="serie"/>
         </div>
     </main>
 </template>
