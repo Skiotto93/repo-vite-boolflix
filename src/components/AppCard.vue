@@ -32,6 +32,11 @@ export default {
     computed: {
         vote() {
             return Math.ceil(this.info.vote_average / 2);
+        },
+        imgCard() {
+            return this.info.poster_path 
+            ? `https://image.tmdb.org/t/p/w342${this.info.poster_path}` 
+            : `https://via.placeholder.com/342x510.png?text=No+Image+Found`
         }
     },
 }
@@ -39,7 +44,7 @@ export default {
 
 <template>
         <div class="card">
-            <img :src="`https://image.tmdb.org/t/p/w300${info.poster_path}`" alt="">
+            <img :src="imgCard" :alt="title">
             <h3>{{ info.title }} {{ info.name }}</h3>
             <span><strong>Titolo originale: </strong>{{ info.original_title }} {{ info.original_name }}</span>
             <div><strong>Lingua: </strong> <country-flag :country='getFlag(info.original_language)' size='small' /></div>
