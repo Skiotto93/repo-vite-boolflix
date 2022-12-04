@@ -45,31 +45,40 @@ export default {
 <template>
         <div class="card">
             <img :src="imgCard" :alt="title">
-            <h3>{{ info.title }} {{ info.name }}</h3>
-            <span><strong>Titolo originale: </strong>{{ info.original_title }} {{ info.original_name }}</span>
-            <div><strong>Lingua: </strong> <country-flag :country='getFlag(info.original_language)' size='small' /></div>
-            <div>
-                <strong>Voto: </strong>
-                <font-awesome-icon 
-                v-for="n in vote"
-                class="starFull"
-                icon="fa-solid fa-star" />
-                <font-awesome-icon 
-                v-for="n in 5 - vote"
-                class="starEmpty" 
-                icon="fa-regular fa-star" />
+            <div class="cardText">
+                <h3>{{ info.title }} {{ info.name }}</h3>
+                <span><strong>Titolo originale: </strong>{{ info.original_title }} {{ info.original_name }}</span>
+                <div><strong>Lingua: </strong> <country-flag :country='getFlag(info.original_language)' size='small' /></div>
+                <div>
+                    <strong>Voto: </strong>
+                    <font-awesome-icon 
+                    v-for="n in vote"
+                    class="starFull"
+                    icon="fa-solid fa-star" />
+                    <font-awesome-icon 
+                    v-for="n in 5 - vote"
+                    class="starEmpty" 
+                    icon="fa-regular fa-star" />
+                </div>
             </div>
         </div>
 </template>
 
 <style lang="scss" scoped>
 .card {
-    padding: 10px 0;
+    padding: 10px 10px;
+    width: calc(100% / 3);
+    img {
+        height: 512px;
+    }
     .starFull {
         color: gold;
     }
     .starEmpty {
         color: grey;
+    }
+    .cardText {
+        width: 100%;
     }
 }
 </style>

@@ -50,6 +50,7 @@ header {
         border: none;
         border-radius: 5px;
         margin-left: 10px;
+        cursor: pointer;
     }
     }
 }
