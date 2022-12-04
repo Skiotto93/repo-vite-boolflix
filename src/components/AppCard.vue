@@ -39,6 +39,7 @@ export default {
 
 <template>
         <div class="card">
+            <img :src="`https://image.tmdb.org/t/p/w300${info.poster_path}`" alt="">
             <h3>{{ info.title }} {{ info.name }}</h3>
             <span><strong>Titolo originale: </strong>{{ info.original_title }} {{ info.original_name }}</span>
             <div><strong>Lingua: </strong> <country-flag :country='getFlag(info.original_language)' size='small' /></div>
